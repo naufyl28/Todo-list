@@ -64,7 +64,7 @@ function deleteTodo(todoId) {
     dispatch(startFetching());
     try {
       await axios.delete(
-        `https://65312ee04d4c2e3f333c9120.mockapi.io/todo/${todoId}`
+        `https://65312ee04d4c2e3f333c9120.mockapi.io/Todo/${todoId}`
       );
       dispatch(successDeleteTodo(todoId));
     } catch (error) {
@@ -80,7 +80,7 @@ function addTodo(newTodo) {
     dispatch(startFetching());
     try {
       await axios.post(
-        `https://65312ee04d4c2e3f333c9120.mockapi.io/todo`,
+        `https://65312ee04d4c2e3f333c9120.mockapi.io/Todo`,
         newTodo
       );
       dispatch(getTodo());
@@ -98,7 +98,7 @@ function toggleTodoStatus(todoId) {
     try {
       // Fetch the current todo
       const response = await axios.get(
-        `https://65312ee04d4c2e3f333c9120.mockapi.io/todo/${todoId}`
+        `https://65312ee04d4c2e3f333c9120.mockapi.io/Todo/${todoId}`
       );
       const currentTodo = response.data;
 
@@ -107,7 +107,7 @@ function toggleTodoStatus(todoId) {
 
       
       await axios.put(
-        `https://65312ee04d4c2e3f333c9120.mockapi.io/todo/${todoId}`,
+        `https://65312ee04d4c2e3f333c9120.mockapi.io/Todo/${todoId}`,
         updatedTodo
       );
 
@@ -125,7 +125,7 @@ function updateTodo(todoId, updatedTodo) {
     dispatch(startFetching());
     try {
       await axios.put(
-        `https://65312ee04d4c2e3f333c9120.mockapi.io/todo/${todoId}`,
+        `https://65312ee04d4c2e3f333c9120.mockapi.io/Todo/${todoId}`,
         updatedTodo
       );
       dispatch(getTodo());
@@ -164,7 +164,7 @@ function getTodo() {
 
     try {
       const response = await axios.get(
-        `https://65312ee04d4c2e3f333c9120.mockapi.io/todo`
+        `https://65312ee04d4c2e3f333c9120.mockapi.io/Todo`
       );
       dispatch(successGetTodo(response.data));
     } catch (error) {
